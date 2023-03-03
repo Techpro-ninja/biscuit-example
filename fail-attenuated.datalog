@@ -1,1 +1,1 @@
-check if user($user), $user.contains("user");
+check if user($user), $user.contains("moderator");
