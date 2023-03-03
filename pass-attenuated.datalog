@@ -1,0 +1,1 @@
+check if user($user), $user.contains("moderator");

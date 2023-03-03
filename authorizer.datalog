@@ -1,0 +1,20 @@
+// Facts
+user(["admin", "moderator"]);
+operation("delete");
+resource("website");
+
+// server-side ACLs
+permission("admin", "website", "delete");
+permission("admin", "website", "create");
+permission("admin", "blog", "delete");
+
+is_allowed($user, $res, $op) <-
+  user($user),
+  resource($res),
+  operation($op),
+  permission($user, $res, $op);
+
+// the request can go through if the current user
+// is allowed to perform the current operation
+// on the current resource
+allow if is_allowed($user, $resource, $op);
